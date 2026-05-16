@@ -10,66 +10,131 @@
     background: #0a0a0a;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif;
+    padding: 20px;
   }
-  .box {
-    text-align: center;
-    padding: 40px 24px;
-    max-width: 400px;
+  .card {
+    background: #111;
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
   }
-  .emoji { font-size: 60px; margin-bottom: 16px; }
-  .title {
-    color: #E8000E;
-    font-size: 28px;
+  .hero {
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 32px 28px;
+    border-bottom: 3px solid #E8000E;
+  }
+  .foto-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .foto {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid #E8000E;
+    object-fit: cover;
+    display: block;
+  }
+  .dot {
+    width: 22px;
+    height: 22px;
+    background: #E8000E;
+    border-radius: 50%;
+    border: 3px solid #0a0a0a;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+  }
+  .hero-text { flex: 1; }
+  .hero-title {
+    font-size: clamp(32px, 7vw, 52px);
     font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
   }
+  .hero-title span { color: #E8000E; }
+  .hero-meta {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+  }
+  .meta-item {
+    font-size: 13px;
+    font-weight: 700;
+    color: #888;
+  }
+  .meta-item span { color: #fff; }
+  .body {
+    padding: 24px 32px 32px;
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #E8000E;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 18px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+  }
+  .btn:hover { background: #c0000b; }
   .sub {
     color: #888;
     font-size: 14px;
-    margin-bottom: 12px;
-    line-height: 1.6;
+    line-height: 1.7;
+    text-align: center;
   }
-  .members {
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    margin-bottom: 32px;
-  }
-  .btn {
-    display: block;
-    background: #E8000E;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 18px 32px;
-    border-radius: 8px;
-    text-decoration: none;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-  }
-  .free {
-    color: #555;
-    font-size: 12px;
+  .sub span { color: #E8000E; font-weight: 700; }
+
+  @media (max-width: 480px) {
+    .hero { flex-direction: column; text-align: center; padding: 24px 20px; }
+    .hero-meta { justify-content: center; }
+    .body { padding: 20px; }
   }
 </style>
 </head>
 <body>
-<div class="box">
-  <div class="emoji">🔥</div>
-  <div class="title">OFERTAINSANA</div>
-  <div class="sub">Ofertas insanas todo dia no seu WhatsApp.<br>Mercado Livre, Amazon e Shopee.</div>
-  <div class="members">✅ +300 membros já economizando</div>
-  <a class="btn" href="https://chat.whatsapp.com/KATwBHhza6D3Bq0wGblmMQ">
-    📲 ENTRAR NO GRUPO AGORA
-  </a>
-  <div class="free">100% gratuito — sem cadastro</div>
+<div class="card">
+  <div class="hero">
+    <div class="foto-wrap">
+      <img class="foto" src="foto.png" alt="OfertaInsana">
+      <div class="dot"></div>
+    </div>
+    <div class="hero-text">
+      <div class="hero-title">OFERTAS<br><span>INSANAS</span></div>
+      <div class="hero-meta">
+        <div class="meta-item">✅ <span>100% GRATUITO</span></div>
+        <div class="meta-item">👥 <span>+100 MEMBROS</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <a class="btn" href="https://chat.whatsapp.com/KATwBHhza6D3Bq0wGblmMQ">
+      📲 ENTRAR NA COMUNIDADE
+    </a>
+    <div class="sub">
+      Receba as melhores promoções e cupons de desconto<br>
+      no seu WhatsApp — <span>Mercado Livre, Amazon e Shopee</span>
+    </div>
+  </div>
 </div>
 <script>
-  // Tenta abrir o WhatsApp direto
   setTimeout(function() {
     window.location.href = "https://chat.whatsapp.com/KATwBHhza6D3Bq0wGblmMQ";
   }, 1500);
